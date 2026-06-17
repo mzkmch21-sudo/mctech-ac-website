@@ -1,0 +1,38 @@
+CARA MENAMBAH FOTO DI GALLERY
+==============================
+
+1. Siapkan foto Anda (format JPG atau PNG, disarankan ukuran tidak terlalu besar, maksimal 1-2 MB per foto agar website tetap cepat).
+
+2. Ganti nama file foto sesuai urutan berikut, lalu taruh di folder ini (images/gallery/):
+
+   foto1.jpg
+   foto2.jpg
+   foto3.jpg
+   foto4.jpg
+   foto5.jpg
+   foto6.jpg
+   foto7.jpg
+   foto8.jpg
+   foto9.jpg
+
+   Catatan: kalau foto Anda formatnya PNG, ganti juga di file index.html
+   bagian src="images/gallery/foto1.jpg" menjadi src="images/gallery/foto1.png"
+   (cari pakai Ctrl+H di VS Code, ganti .jpg jadi .png).
+
+3. Kalau jumlah foto Anda kurang dari 9, kotak yang fotonya belum ada
+   akan otomatis hilang/tersembunyi (tidak ada kotak kosong yang aneh).
+
+4. Kalau mau MENAMBAH lebih dari 9 foto, beritahu saya nanti, saya bantu
+   tambahkan slot/kotak baru di kodenya.
+
+5. Setelah taruh foto, simpan, lalu refresh browser (kalau pakai Live
+   Server otomatis refresh sendiri) -- foto akan langsung muncul di
+   bagian Gallery.
+
+6. Klik foto di website akan memperbesar tampilannya (efek lightbox).
+
+TIPS UKURAN FOTO
+-----------------
+Supaya tampilan rapi, gunakan foto dengan rasio mendekati 4:3
+(misalnya 1200x900 piksel). Foto dengan rasio sangat berbeda akan
+otomatis dipotong (crop) agar tetap pas di kotaknya.
