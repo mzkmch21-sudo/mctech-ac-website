@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MC TECH AIR CONDITIONER – Service AC Profesional</title>
+  <title>MC TECH AIR CONDITIONER – Service AC</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -512,9 +513,16 @@
     #kontak { background: var(--dark2); }
     .kontak-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: start;
+      gap: 4rem; align-items: stretch;
     }
-    .kontak-info { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .kontak-left {
+      background: var(--card);
+      border: 1px solid rgba(56,189,248,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex; flex-direction: column; justify-content: flex-start;
+    }
+    .kontak-info { display: flex; flex-direction: column; gap: 1.5rem; }
     .kontak-item { display: flex; gap: 1rem; align-items: flex-start; }
     .kontak-icon {
       width: 42px; height: 42px; flex-shrink: 0;
@@ -680,7 +688,10 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"> MC  TECH<span> AIR  CONDITIONER</span></div>
+  <div class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;">
+    <img src="favicon.svg" alt="MC TECH Logo" style="width:32px;height:32px;border-radius:7px;" />
+    MC TECH<span> AIR  CONDITIONER</span>
+  </div>
   <ul class="nav-links">
     <li><a href="#layanan" class="active" data-tab="tab-layanan" onclick="goToTab(event,'tab-layanan')">Layanan</a></li>
     <li><a href="#layanan" data-tab="tab-keunggulan" onclick="goToTab(event,'tab-keunggulan')">Keunggulan</a></li>
@@ -720,7 +731,7 @@
     <div class="hero-stats">
       <div class="stat-item"><span class="stat-num">1.200+</span><span class="stat-label">Unit Ditangani</span></div>
       <div class="stat-item"><span class="stat-num">4 Th</span><span class="stat-label">Pengalaman</span></div>
-      <div class="stat-item"><span class="stat-num">4.8  <span class="stat-star">  ★</span></span><span class="stat-label">Rating Pelanggan</span></div>
+      <div class="stat-item"><span class="stat-num">4.8<span class="stat-star">★</span></span><span class="stat-label">Rating Pelanggan</span></div>
     </div>
 
     <!-- AC illustration -->
@@ -751,9 +762,9 @@
 <section id="layanan">
   <div class="container">
     <div class="services-header reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-      <p class="section-eyebrow">— Profil Kami</p>
+      <p class="section-eyebrow">— Profil Kami —</p>
       <h2 class="section-title">SEMUA YANG PERLU<br>ANDA TAHU</h2>
-      <p class="section-sub" style="margin-left:auto;margin-right:auto;">Jelajahi Layanan, Keunggulan, Proses Kerja, Dan Hasil Pekerjaan Kami Melalui Menu Navigasi Di Atas.</p>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">Jelajahi layanan, keunggulan, proses kerja, dan hasil pekerjaan kami melalui menu navigasi di atas.</p>
     </div>
 
     <!-- TAB: LAYANAN -->
@@ -785,12 +796,7 @@
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3>Perbaikan Kerusakan</h3>
-          <p>Diagnosa dan Perbaikan Semua Kerusakan AC: Kompresor, PCB, Sensor, Kapasitor, dan Motor Fan.</p>
-          <p class="service-price">Konsultasi Gratis</p>
-        </div>
-          </div>
-        </div>
-          </div>
+          <p>Diagnosa dan Perbaikan Semua Kerusakan AC: Kompresor, PCB, Sensor, kapasitor, dan Motor Fan.</p>
         </div>
       </div>
     </div>
@@ -815,25 +821,28 @@
           </div>
         </div>
         <div class="why-visual reveal visible">
-          <p style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Status Unit Anda</p>
-          <div class="temp-display">
-            <div class="temp-big" id="tempDisplay">18°C</div>
-            <div class="temp-label">Suhu ruangan saat ini</div>
+          <p style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Cuaca</p>
+          <div class="temp-display" style="display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:1rem 0;">
+            <div id="timeIcon" style="width:64px;height:64px;flex-shrink:0;"></div>
+            <div style="text-align:left;">
+              <div class="temp-big" id="tempDisplay">--°C</div>
+              <div class="temp-label" id="tempLabel">Mendeteksi lokasi...</div>
+            </div>
           </div>
-          <div class="gauge-bar"><div class="gauge-fill" id="gaugeFill"></div></div>
-          <div class="temp-row"><span>16°C</span><span>Efisiensi Pendingin</span><span>30°C</span></div>
+          <div class="gauge-bar"><div class="gauge-fill" id="gaugeFill" style="width:0%"></div></div>
+          <div class="temp-row"><span>16°C</span><span id="tempLocation">📍 Lokasi Anda</span><span>40°C</span></div>
           <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
             <div style="display:flex;justify-content:space-between;font-size:0.85rem;padding:0.6rem 0.9rem;background:rgba(56,189,248,0.06);border-radius:8px;">
-              <span style="color:var(--muted)">Filter</span>
-              <span style="color:#4ADE80;animation:statusBlink 2s ease-in-out infinite;">● Bersih</span>
+              <span style="color:var(--muted)">☁️ Kondisi</span>
+              <span id="weatherCondition" style="color:var(--white);">Memuat...</span>
             </div>
             <div style="display:flex;justify-content:space-between;font-size:0.85rem;padding:0.6rem 0.9rem;background:rgba(56,189,248,0.06);border-radius:8px;">
-              <span style="color:var(--muted)">Freon</span>
-              <span style="color:#FBBF24;animation:statusBlink 2s ease-in-out infinite;">● Perlu Isi Ulang</span>
+              <span style="color:var(--muted)">💧 Kelembaban</span>
+              <span id="weatherHumidity" style="color:var(--white);">Memuat...</span>
             </div>
             <div style="display:flex;justify-content:space-between;font-size:0.85rem;padding:0.6rem 0.9rem;background:rgba(56,189,248,0.06);border-radius:8px;">
-              <span style="color:var(--muted)">Kondensor</span>
-              <span style="color:#4ADE80;animation:statusBlink 2s ease-in-out infinite;">● Normal</span>
+              <span style="color:var(--muted)">💨 Angin</span>
+              <span id="weatherWind" style="color:var(--white);">Memuat...</span>
             </div>
           </div>
         </div>
@@ -891,15 +900,15 @@
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto6.jpg')">
           <img src="images/gallery/foto6.jpg" alt="Hasil pekerjaan 6" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Cleaning Unit Outdoor</span>
+          <span class="gallery-caption">Cleaning Outdoor</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto7.jpg')">
           <img src="images/gallery/foto7.jpg" alt="Hasil pekerjaan 7" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Cleaning Outdoor</span>
+          <span class="gallery-caption">Cleaning Indoor</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto8.jpg')">
           <img src="images/gallery/foto8.jpg" alt="Hasil pekerjaan 8" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Service Darurat</span>
+          <span class="gallery-caption">Perbaikan Unit Outdoor</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto9.jpg')">
           <img src="images/gallery/foto9.jpg" alt="Hasil pekerjaan 9" onerror="this.parentElement.style.display='none'">
@@ -920,11 +929,12 @@
 <section id="kontak">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto 3rem;">
-      <h2 class="section-title">HUBUNGI<br>KAMI</h2>
-      <p class="section-sub" style="margin:0 auto;">Teknisi Kami Tersedia Setiap Hari. Isi Formulir Atau Langsung Hubungi Kami via WhatsApp.</p>
+      <p class="section-eyebrow">— Hubungi Kami —</p>
+      <h2 class="section-title">HUBUNGI KAMI</h2>
+      <p class="section-sub" style="margin:0 auto;">Teknisi kami tersedia setiap hari. Isi formulir atau langsung hubungi kami via WhatsApp.</p>
     </div>
     <div class="kontak-grid">
-      <div>
+      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-bottom: 4rem;">
         <div class="kontak-info" style="margin-top:0;">
           <div class="kontak-item reveal">
             <div class="kontak-icon">
@@ -956,24 +966,23 @@
       <!-- FORM -->
       <div class="reveal">
         <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.25rem;margin-top:2rem">Formulir Pemesanan</h3>
-        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0">Kami Akan Menghubungi Anda Dalam 30 Menit.</p>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0">Kami akan menghubungi Anda dalam 30 menit.</p>
         <form class="kontak-form" id="bookingForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <div class="form-group"><label>Nama Lengkap</label><input type="text" id="f-nama" placeholder="Irul" required /></div>
+            <div class="form-group"><label>Nama Lengkap</label><input type="text" id="f-nama" placeholder="Budi Santoso" required /></div>
             <div class="form-group"><label>Nomor WA/HP</label><input type="tel" id="f-hp" placeholder="08xx-xxxx-xxxx" required /></div>
           </div>
-          <div class="form-group"><label>Alamat</label><input type="text" id="f-alamat" placeholder="Jalan,Kelurahan,Kecamatan,No Rumah" required /></div>
+          <div class="form-group"><label>Alamat</label><input type="text" id="f-alamat" placeholder="Jalan, kelurahan, kecamatan..." required /></div>
           <div class="form-row">
             <div class="form-group">
               <label>Jenis Layanan</label>
               <select id="f-layanan" required>
                 <option value="" disabled selected>Pilih layanan...</option>
                 <option>Cuci AC</option>
-                <option>Isi/Tambah Freon</option>
+                <option>Isi Freon</option>
                 <option>Bongkar Pasang</option>
                 <option>Perbaikan Kerusakan</option>
                 <option>Perawatan Berkala</option>
-                <option>Pasang Baru</option>
               </select>
             </div>
             <div class="form-group">
@@ -991,7 +1000,7 @@
               </select>
             </div>
           </div>
-          <div class="form-group"><label>Keluhan / Catatan (opsional)</label><textarea id="f-catatan" placeholder="Contoh : AC tidak dingin, ada bunyi aneh, remot tidak berfungsi..."></textarea></div>
+          <div class="form-group"><label>Keluhan / Catatan (opsional)</label><textarea id="f-catatan" placeholder="Contoh: AC tidak dingin, ada bunyi aneh, remot tidak berfungsi..."></textarea></div>
           <button type="submit" class="btn-submit">Kirim Pemesanan →</button>
         </form>
         <div class="form-success" id="formSuccess">
@@ -1009,7 +1018,10 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="nav-logo">MC TECH <span>AIR CONDITIONER</span></div>
+        <div class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;">
+          <img src="favicon.svg" alt="MC TECH Logo" style="width:28px;height:28px;border-radius:6px;" />
+          MC TECH <span>AIR CONDITIONER</span>
+        </div>
         <p>Solusi service AC terpercaya di Semarang sejak 2022. Teknisi Bersertifikat, Harga Transparan, Bergaransi.</p>
       </div>
       <div class="footer-links">
@@ -1041,7 +1053,7 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 MC TECH AIR CONDITIONER. Hak cipta dilindungi.</p>
-      <p>MC TECH DEVELOPMENT ❄️</p>
+      <p>❄️ MC TECH DEVELOPMENT</p>
     </div>
   </div>
 </footer>
@@ -1101,16 +1113,205 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
 
-  // ===== ANIMATED TEMP =====
-  let temps = [16, 18, 20, 17, 19, 21, 16];
-  let ti = 0;
-  setInterval(() => {
-    ti = (ti + 1) % temps.length;
-    const t = temps[ti];
-    document.getElementById('tempDisplay').textContent = t + '°C';
-    const pct = ((t - 16) / (30 - 16)) * 100;
-    document.getElementById('gaugeFill').style.width = pct + '%';
-  }, 2000);
+  // ===== TIME & WEATHER ICON =====
+  function getTimeIcon(hour, weatherCode) {
+    const isNight = hour < 5 || hour >= 18;
+    const isSunrise = hour >= 5 && hour < 10;
+    const isSunset = hour >= 15 && hour < 18;
+    const isRaining = weatherCode >= 51 && weatherCode <= 99;
+    const isCloudy = weatherCode >= 2 && weatherCode <= 49;
+
+    if (isNight) {
+      // Malam: bulan sabit + bintang
+      return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#0A1628" stroke="rgba(56,189,248,0.2)" stroke-width="1"/>
+        <path d="M38 14c-8 2-14 9-14 18s6 16 14 18c-12 0-22-8-22-18s10-18 22-18z" fill="#BAE6FD" opacity="0.9"/>
+        <circle cx="44" cy="16" r="2" fill="#38BDF8" opacity="0.8"/>
+        <circle cx="50" cy="24" r="1.5" fill="#38BDF8" opacity="0.6"/>
+        <circle cx="40" cy="28" r="1" fill="#38BDF8" opacity="0.7"/>
+        <circle cx="48" cy="34" r="1.5" fill="#BAE6FD" opacity="0.5"/>
+        <circle cx="42" cy="40" r="1" fill="#38BDF8" opacity="0.6"/>
+      </svg>`;
+    } else if (isSunrise) {
+      // Pagi: matahari terbit dengan sinar oranye
+      return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sunRise" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FDE68A"/>
+            <stop offset="100%" stop-color="#F59E0B"/>
+          </radialGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="#0A1628" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+        <line x1="32" y1="8" x2="32" y2="14" stroke="#FDE68A" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <line x1="50" y1="14" x2="46" y2="18" stroke="#FDE68A" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <line x1="14" y1="14" x2="18" y2="18" stroke="#FDE68A" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <circle cx="32" cy="32" r="10" fill="url(#sunRise)"/>
+        <rect x="14" y="38" width="36" height="2" rx="1" fill="#38BDF8" opacity="0.3"/>
+        <path d="M14 42 Q32 34 50 42" stroke="#FDE68A" stroke-width="1.5" fill="none" opacity="0.4"/>
+      </svg>`;
+    } else if (isSunset) {
+      // Sore: matahari terbenam warna jingga-merah
+      return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sunSet" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FCA5A5"/>
+            <stop offset="100%" stop-color="#EF4444"/>
+          </radialGradient>
+          <linearGradient id="skySet" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1E3A5F"/>
+            <stop offset="100%" stop-color="#7C2D12" stop-opacity="0.3"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="url(#skySet)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+        <circle cx="32" cy="38" r="10" fill="url(#sunSet)"/>
+        <rect x="14" y="42" width="36" height="2" rx="1" fill="#38BDF8" opacity="0.3"/>
+        <line x1="32" y1="14" x2="32" y2="20" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        <line x1="48" y1="22" x2="44" y2="26" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        <line x1="16" y1="22" x2="20" y2="26" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      </svg>`;
+    } else if (isRaining) {
+      // Siang hujan
+      return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#0A1628" stroke="rgba(56,189,248,0.2)" stroke-width="1"/>
+        <ellipse cx="32" cy="26" rx="14" ry="9" fill="#334155"/>
+        <ellipse cx="22" cy="29" rx="9" ry="7" fill="#475569"/>
+        <ellipse cx="42" cy="28" rx="8" ry="6" fill="#475569"/>
+        <line x1="24" y1="38" x2="22" y2="46" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <line x1="32" y1="38" x2="30" y2="46" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <line x1="40" y1="38" x2="38" y2="46" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+      </svg>`;
+    } else if (isCloudy) {
+      // Siang berawan
+      return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sunDay2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FDE68A"/>
+            <stop offset="100%" stop-color="#F59E0B"/>
+          </radialGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="#0A1628" stroke="rgba(56,189,248,0.15)" stroke-width="1"/>
+        <circle cx="22" cy="26" r="8" fill="url(#sunDay2)" opacity="0.9"/>
+        <line x1="22" y1="10" x2="22" y2="14" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+        <line x1="34" y1="14" x2="31" y2="17" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+        <ellipse cx="36" cy="34" rx="14" ry="9" fill="#334155"/>
+        <ellipse cx="26" cy="37" rx="9" ry="7" fill="#475569"/>
+        <ellipse cx="46" cy="36" rx="8" ry="6" fill="#3D5A80" opacity="0.8"/>
+      </svg>`;
+    } else {
+      // Siang cerah
+      return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sunFull" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FEF08A"/>
+            <stop offset="100%" stop-color="#EAB308"/>
+          </radialGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="#0A1628" stroke="rgba(234,179,8,0.2)" stroke-width="1"/>
+        <circle cx="32" cy="32" r="12" fill="url(#sunFull)"/>
+        <line x1="32" y1="8" x2="32" y2="14" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="32" y1="50" x2="32" y2="56" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="8" y1="32" x2="14" y2="32" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="50" y1="32" x2="56" y2="32" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="16" y1="16" x2="20" y2="20" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="44" y1="44" x2="48" y2="48" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="48" y1="16" x2="44" y2="20" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="20" y1="44" x2="16" y2="48" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+      </svg>`;
+    }
+  }
+
+  function updateTimeIcon(weatherCode) {
+    const hour = new Date().getHours();
+    document.getElementById('timeIcon').innerHTML = getTimeIcon(hour, weatherCode || 0);
+  }
+
+  // Panggil saat load untuk langsung tampil ikon sesuai jam sekarang
+  updateTimeIcon(0);
+
+  // ===== REAL-TIME WEATHER =====
+  function decodeWeather(code) {
+    if (code === 0) return '☀️ Cerah';
+    if (code <= 2) return '⛅ Berawan Sebagian';
+    if (code === 3) return '☁️ Mendung';
+    if (code <= 49) return '🌫️ Berkabut';
+    if (code <= 59) return '🌧️ Gerimis';
+    if (code <= 69) return '🌧️ Hujan';
+    if (code <= 79) return '🌨️ Hujan Es';
+    if (code <= 82) return '🌦️ Hujan Deras';
+    if (code <= 99) return '⛈️ Badai';
+    return '🌤️ Berawan';
+  }
+
+  function updateWeather(temp, humidity, wind, condition, locationName) {
+    const display = document.getElementById('tempDisplay');
+    const label = document.getElementById('tempLabel');
+    const gauge = document.getElementById('gaugeFill');
+    const loc = document.getElementById('tempLocation');
+
+    // Animasi angka naik ke suhu tujuan
+    let current = 16;
+    const target = Math.round(temp);
+    const step = () => {
+      if (current < target) {
+        current++;
+        display.textContent = current + '°C';
+        const pct = Math.min(((current - 16) / (40 - 16)) * 100, 100);
+        gauge.style.width = pct + '%';
+        setTimeout(step, 40);
+      } else {
+        display.textContent = target + '°C';
+      }
+    };
+    step();
+
+    label.textContent = 'Suhu udara luar saat ini';
+    if (locationName) loc.textContent = '📍 ' + locationName;
+
+    // Update info cuaca
+    document.getElementById('weatherCondition').textContent = condition;
+    document.getElementById('weatherHumidity').textContent = humidity + '%';
+    document.getElementById('weatherWind').textContent = wind + ' km/jam';
+  }
+
+  function fetchWeather(lat, lon, cityName) {
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current_weather=true&hourly=relativehumidity_2m&timezone=auto')
+      .then(r => r.json())
+      .then(data => {
+        const cw = data.current_weather;
+        const temp = cw.temperature;
+        const wind = Math.round(cw.windspeed);
+        const condition = decodeWeather(cw.weathercode);
+        // Ambil kelembaban jam terdekat
+        const hourIndex = new Date().getHours();
+        const humidity = data.hourly.relativehumidity_2m[hourIndex] || '--';
+        updateWeather(temp, humidity, wind, condition, cityName || 'Lokasi Anda');
+      })
+      .catch(() => {
+        updateWeather(32, 80, 12, '⛅ Berawan Sebagian', 'Semarang');
+      });
+  }
+
+  // Coba ambil lokasi pengunjung
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const { latitude, longitude } = pos.coords;
+        fetch('https://nominatim.openstreetmap.org/reverse?lat=' + latitude + '&lon=' + longitude + '&format=json')
+          .then(r => r.json())
+          .then(geo => {
+            const city = geo.address.city || geo.address.town || geo.address.village || geo.address.county || 'Lokasi Anda';
+            fetchWeather(latitude, longitude, city);
+          })
+          .catch(() => fetchWeather(latitude, longitude, 'Lokasi Anda'));
+      },
+      () => {
+        fetchWeather(-7.0052, 110.4381, 'Semarang');
+      },
+      { timeout: 5000 }
+    );
+  } else {
+    fetchWeather(-7.0052, 110.4381, 'Semarang');
+  }
 
   // ===== FORM SUBMIT -> KIRIM KE WHATSAPP =====
   // Nomor WhatsApp admin (format: 62xxxxxxxxxx, tanpa + atau 0 di depan)
