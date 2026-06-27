@@ -156,11 +156,11 @@
       justify-content: center;
     }
     .btn-primary {
-      background: var(--ice); color: var(--dark);
+      background: transparent; color: var(--white);
       padding: 0.85rem 2rem; border-radius: 50px;
       font-weight: 600; font-size: 0.95rem;
       text-decoration: none; transition: all 0.25s cubic-bezier(.4,1.4,.6,1);
-      border: none; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.25); cursor: pointer;
       position: relative; overflow: hidden;
     }
     .btn-primary::before {
@@ -171,15 +171,18 @@
     }
     .btn-primary:hover::before { opacity: 1; animation: shimmer 1.2s ease infinite; }
     .btn-primary:active { transform: scale(0.96); }
-    .btn-primary:hover { background: var(--ice-pale); transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--ice); border-color: var(--ice); color: var(--dark); transform: translateY(-2px); }
     .btn-outline {
       background: transparent; color: var(--white);
       padding: 0.85rem 2rem; border-radius: 50px;
       font-weight: 500; font-size: 0.95rem;
-      text-decoration: none; transition: all 0.2s;
+      text-decoration: none; transition: all 0.25s cubic-bezier(.4,1.4,.6,1);
       border: 1px solid rgba(255,255,255,0.25); cursor: pointer;
     }
-    .btn-outline:hover { border-color: var(--ice); color: var(--ice); transform: translateY(-2px); }
+    .btn-outline:hover {
+      background: var(--ice); border-color: var(--ice); color: var(--dark);
+      transform: translateY(-2px);
+    }
     .btn-outline:active { transform: scale(0.96); }
     .hero-stats {
       display: flex; gap: 2.5rem; margin-top: 3.5rem; flex-wrap: wrap;
@@ -704,6 +707,7 @@
     <li><a href="#layanan" data-tab="tab-gallery" onclick="goToTab(event,'tab-gallery')">Gallery</a></li>
     <li><a href="#kontak" data-tab="tab-kontak" onclick="goToKontak(event)">Kontak</a></li>
   </ul>
+  <button class="nav-cta" onclick="goToKontak(event)">PESAN SEKARANG</button>
   <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')">
     <span></span><span></span><span></span>
   </div>
@@ -733,6 +737,8 @@
       Service AC di Semarang. Cleaning, Isi/Tambah Freon, Bongkar Pasang, Hingga Perbaikan Total.
     </p>
     <div class="hero-btns">
+      <a href="#kontak" class="btn-primary" onclick="goToKontak(event)">Pesan Sekarang</a>
+      <a href="#layanan" class="btn-outline">Lihat Layanan</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item"><span class="stat-num">1.200+</span><span class="stat-label">Unit Ditangani</span></div>
@@ -768,7 +774,7 @@
 <section id="layanan">
   <div class="container">
     <div class="services-header reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-      <p class="section-eyebrow">— Profil Kami —</p>
+      <p class="section-eyebrow">— Profil Kami</p>
       <h2 class="section-title">SEMUA YANG PERLU<br>ANDA TAHU</h2>
       <p class="section-sub" style="margin-left:auto;margin-right:auto;">Jelajahi layanan, keunggulan, proses kerja, dan hasil pekerjaan kami melalui menu navigasi di atas.</p>
     </div>
@@ -802,7 +808,8 @@
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3>Perbaikan Kerusakan</h3>
-          <p>Diagnosa dan Perbaikan Semua Kerusakan AC: Kompresor, PCB, Sensor, Kapasitor, dan Motor Fan.</p>
+          <p>Diagnosa dan Perbaikan Semua Kerusakan AC: Kompresor, PCB, Sensor, kapasitor, dan Motor Fan.</p>
+          <p class="service-price">Konsultasi Gratis</p>
         </div>
       </div>
     </div>
@@ -818,7 +825,7 @@
             </div>
             <div class="why-item reveal visible">
               <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div><h4>Garansi Penggantian Sparepart 30 Hari Dengan Kerusakan Yang Sama</h4><p>Jika AC Bermasalah Lagi Dalam 30 Hari Setelah Penggantian Sparepart.</p></div>
+              <div><h4>Bergaransi</h4><p>Jika AC bermasalah lagi setelah servis, kami kembali tanpa biaya tambahan.</p></div>
             </div>
             <div class="why-item reveal visible">
               <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -861,22 +868,22 @@
         <div class="step-item reveal visible">
           <div class="step-num">01</div>
           <h4>Hubungi Kami</h4>
-          <p>Isi Formulir Online, WhatsApp, . Ceritakan Masalah AC Anda.</p>
+          <p>Isi formulir online, WhatsApp, atau telepon. Ceritakan masalah AC Anda.</p>
         </div>
         <div class="step-item reveal visible">
           <div class="step-num">02</div>
           <h4>Penjadwalan</h4>
-          <p>Kami Konfirmasi Jadwal Dan Estimasi Biaya Dalam 30 Menit.</p>
+          <p>Kami konfirmasi jadwal dan estimasi biaya dalam 30 menit.</p>
         </div>
         <div class="step-item reveal visible">
           <div class="step-num">03</div>
           <h4>Teknisi Datang</h4>
-          <p>Teknisi Tiba, Diagnosa, Dan Jelaskan Temuan Sebelum Kerja.</p>
+          <p>Teknisi tiba tepat waktu, diagnosa, dan jelaskan temuan sebelum kerja.</p>
         </div>
         <div class="step-item reveal visible">
           <div class="step-num">04</div>
           <h4>Selesai & Garansi</h4>
-          <p>Pekerjaan Selesai Rapi, Pembayaran Fleksibel.</p>
+          <p>Pekerjaan selesai rapi, pembayaran fleksibel, garansi 30 hari aktif.</p>
         </div>
       </div>
     </div>
@@ -886,11 +893,11 @@
       <div class="gallery-grid">
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto1.jpg')">
           <img src="images/gallery/foto1.jpg" alt="Hasil pekerjaan 1" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Service Cuci AC</span>
+          <span class="gallery-caption">Cuci AC Split</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto2.jpg')">
           <img src="images/gallery/foto2.jpg" alt="Hasil pekerjaan 2" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Pengecekan Unit Indoor</span>
+          <span class="gallery-caption">Isi Freon</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto3.jpg')">
           <img src="images/gallery/foto3.jpg" alt="Hasil pekerjaan 3" onerror="this.parentElement.style.display='none'">
@@ -898,7 +905,7 @@
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto4.jpg')">
           <img src="images/gallery/foto4.jpg" alt="Hasil pekerjaan 4" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Pengecekan Unit Outdoor</span>
+          <span class="gallery-caption">Perbaikan Kompresor</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto5.jpg')">
           <img src="images/gallery/foto5.jpg" alt="Hasil pekerjaan 5" onerror="this.parentElement.style.display='none'">
@@ -906,15 +913,15 @@
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto6.jpg')">
           <img src="images/gallery/foto6.jpg" alt="Hasil pekerjaan 6" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Cleaning Unit Outdoor</span>
+          <span class="gallery-caption">Pemasangan Baru</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto7.jpg')">
           <img src="images/gallery/foto7.jpg" alt="Hasil pekerjaan 7" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Cleaning Unit Indoor</span>
+          <span class="gallery-caption">Cleaning Outdoor</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto8.jpg')">
           <img src="images/gallery/foto8.jpg" alt="Hasil pekerjaan 8" onerror="this.parentElement.style.display='none'">
-          <span class="gallery-caption">Penggantian Sparepart</span>
+          <span class="gallery-caption">Service Darurat</span>
         </div>
         <div class="gallery-item reveal visible" onclick="openLightbox('images/gallery/foto9.jpg')">
           <img src="images/gallery/foto9.jpg" alt="Hasil pekerjaan 9" onerror="this.parentElement.style.display='none'">
@@ -935,8 +942,8 @@
 <section id="kontak">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto 3rem;">
-      <p class="section-eyebrow">— Hubungi Kami —</p>
-      <h2 class="section-title">HUBUNGI<br>KAMI</h2>
+      <p class="section-eyebrow">— Hubungi Kami</p>
+      <h2 class="section-title">HUBUNGI KAMI</h2>
       <p class="section-sub" style="margin:0 auto;">Teknisi kami tersedia setiap hari. Isi formulir atau langsung hubungi kami via WhatsApp.</p>
     </div>
     <div class="kontak-grid">
@@ -952,7 +959,7 @@
             <div class="kontak-icon">
               <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
-            <div><h4>Email</h4><p>mctechaircond@gmail.com</p></div>
+            <div><h4>Email</h4><p>mctechairconditioner@gmail.com</p></div>
           </div>
           <div class="kontak-item reveal">
             <div class="kontak-icon">
@@ -972,21 +979,21 @@
       <!-- FORM -->
       <div class="reveal">
         <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.25rem;margin-top:2rem">Formulir Pemesanan</h3>
-        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0">Kami Akan Menghubungi Anda Dalam 30 Menit.</p>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0">Kami akan menghubungi Anda dalam 30 menit.</p>
         <form class="kontak-form" id="bookingForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <div class="form-group"><label>Nama Lengkap</label><input type="text" id="f-nama" placeholder="Irul" required /></div>
+            <div class="form-group"><label>Nama Lengkap</label><input type="text" id="f-nama" placeholder="Nama Anda" required /></div>
             <div class="form-group"><label>Nomor WA/HP</label><input type="tel" id="f-hp" placeholder="08xx-xxxx-xxxx" required /></div>
           </div>
-          <div class="form-group"><label>Alamat</label><input type="text" id="f-alamat" placeholder="Jalan,Kelurahan,Kecamatan,No Rumah..." required /></div>
+          <div class="form-group"><label>Alamat</label><input type="text" id="f-alamat" placeholder="Jalan, Kelurahan, Kecamatan, No Rumah..." required /></div>
           <div class="form-row">
             <div class="form-group">
               <label>Jenis Layanan</label>
               <select id="f-layanan" required>
                 <option value="" disabled selected>Pilih layanan...</option>
-                <option>Service Cuci AC</option>
-                <option>Isi/Tambah Freon</option>
-                <option>Bongkar Pasang/Pasang Baru</option>
+                <option>Cuci AC</option>
+                <option>Isi Freon</option>
+                <option>Bongkar Pasang</option>
                 <option>Perbaikan Kerusakan</option>
                 <option>Perawatan Berkala</option>
               </select>
@@ -1002,8 +1009,8 @@
                 <option>Sharp</option>
                 <option>Midea</option>
                 <option>Gree</option>
-                <option>Aqua</option>
-                <option>TCL</option>
+                <option>AQUA</option>
+
                 <option>Lainnya</option>
               </select>
             </div>
@@ -1030,7 +1037,7 @@
           <img src="favicon.svg" alt="MC TECH Logo" style="width:28px;height:28px;border-radius:6px;" />
           MC TECH <span>AIR CONDITIONER</span>
         </div>
-        <p>Solusi service AC terpercaya di Semarang sejak 2022. Teknisi Bersertifikat, Harga Transparan, Garansi Pasti.</p>
+        <p>Solusi service AC terpercaya di Semarang sejak 2022. Teknisi Bersertifikat, Harga Transparan, Bergaransi.</p>
       </div>
       <div class="footer-links">
         <h5>Layanan</h5>
